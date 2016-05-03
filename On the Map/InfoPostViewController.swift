@@ -12,10 +12,29 @@ import UIKit
 
 class InfoPostViewController : UIViewController {
     
+    @IBOutlet weak var IBFirstName: UITextField!
+    
+    @IBOutlet weak var IBLastName: UITextField!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        self.IBFirstName.text = ""
+        self.IBLastName.text = ""
+        
+    }
     
     @IBAction func ActionCancel(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func ActionFindMap(sender: AnyObject) {
+        
     }
     
     
