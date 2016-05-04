@@ -9,29 +9,31 @@
 /* Begin PBXBuildFile section */
 		DB14E7FD1CD77FDB008D79ED /* InfoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */; };
 		DB14E7FF1CD784BD008D79ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */; };
-		DB14E8011CD8937B008D79ED /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E8001CD8937B008D79ED /* GlobalVariable.swift */; };
 		DB14E8031CD8A374008D79ED /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E8021CD8A374008D79ED /* GCDBlackBox.swift */; };
 		DB14E8051CD8ACEC008D79ED /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E8041CD8ACEC008D79ED /* tableViewController.swift */; };
 		DBA10F771CD296AB00DF5A88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */; };
-		DBA10F791CD296AB00DF5A88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA10F781CD296AB00DF5A88 /* ViewController.swift */; };
+		DBA10F791CD296AB00DF5A88 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA10F781CD296AB00DF5A88 /* MapViewController.swift */; };
 		DBA10F7C1CD296AB00DF5A88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA10F7A1CD296AB00DF5A88 /* Main.storyboard */; };
 		DBA10F7E1CD296AB00DF5A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBA10F7D1CD296AB00DF5A88 /* Assets.xcassets */; };
 		DBA10F811CD296AB00DF5A88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA10F7F1CD296AB00DF5A88 /* LaunchScreen.storyboard */; };
+		DBFADB391CD95F3C000E5C97 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFADB381CD95F3C000E5C97 /* Client.swift */; };
+		DBFADB3B1CD990A2000E5C97 /* InfoPostMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFADB3A1CD990A2000E5C97 /* InfoPostMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPostViewController.swift; sourceTree = "<group>"; };
 		DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DB14E8001CD8937B008D79ED /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		DB14E8021CD8A374008D79ED /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		DB14E8041CD8ACEC008D79ED /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		DBA10F731CD296AA00DF5A88 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBA10F781CD296AB00DF5A88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DBA10F781CD296AB00DF5A88 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DBA10F7B1CD296AB00DF5A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBA10F7D1CD296AB00DF5A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBA10F801CD296AB00DF5A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBA10F821CD296AB00DF5A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBFADB381CD95F3C000E5C97 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		DBFADB3A1CD990A2000E5C97 /* InfoPostMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPostMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +66,52 @@
 		DBA10F751CD296AA00DF5A88 /* On the Map */ = {
 			isa = PBXGroup;
 			children = (
-				DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */,
-				DBA10F781CD296AB00DF5A88 /* ViewController.swift */,
-				DB14E8041CD8ACEC008D79ED /* tableViewController.swift */,
-				DB14E8001CD8937B008D79ED /* GlobalVariable.swift */,
-				DBA10F7A1CD296AB00DF5A88 /* Main.storyboard */,
-				DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */,
-				DB14E8021CD8A374008D79ED /* GCDBlackBox.swift */,
-				DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */,
+				DBFADB371CD95E6B000E5C97 /* Delegate */,
+				DBFADB361CD95E39000E5C97 /* View */,
+				DBFADB351CD95E2D000E5C97 /* Controller */,
+				DBFADB331CD95DF5000E5C97 /* Model */,
 				DBA10F7D1CD296AB00DF5A88 /* Assets.xcassets */,
-				DBA10F7F1CD296AB00DF5A88 /* LaunchScreen.storyboard */,
 				DBA10F821CD296AB00DF5A88 /* Info.plist */,
 			);
 			path = "On the Map";
+			sourceTree = "<group>";
+		};
+		DBFADB331CD95DF5000E5C97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBFADB381CD95F3C000E5C97 /* Client.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DBFADB351CD95E2D000E5C97 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB14E8021CD8A374008D79ED /* GCDBlackBox.swift */,
+				DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */,
+				DBFADB3A1CD990A2000E5C97 /* InfoPostMap.swift */,
+				DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */,
+				DB14E8041CD8ACEC008D79ED /* tableViewController.swift */,
+				DBA10F781CD296AB00DF5A88 /* MapViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		DBFADB361CD95E39000E5C97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBA10F7F1CD296AB00DF5A88 /* LaunchScreen.storyboard */,
+				DBA10F7A1CD296AB00DF5A88 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DBFADB371CD95E6B000E5C97 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,10 +187,11 @@
 			files = (
 				DB14E7FF1CD784BD008D79ED /* LoginViewController.swift in Sources */,
 				DB14E8051CD8ACEC008D79ED /* tableViewController.swift in Sources */,
-				DB14E8011CD8937B008D79ED /* GlobalVariable.swift in Sources */,
-				DBA10F791CD296AB00DF5A88 /* ViewController.swift in Sources */,
+				DBA10F791CD296AB00DF5A88 /* MapViewController.swift in Sources */,
 				DB14E7FD1CD77FDB008D79ED /* InfoPostViewController.swift in Sources */,
+				DBFADB3B1CD990A2000E5C97 /* InfoPostMap.swift in Sources */,
 				DB14E8031CD8A374008D79ED /* GCDBlackBox.swift in Sources */,
+				DBFADB391CD95F3C000E5C97 /* Client.swift in Sources */,
 				DBA10F771CD296AB00DF5A88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
