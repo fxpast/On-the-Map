@@ -10,20 +10,27 @@
 		DB14E7FD1CD77FDB008D79ED /* InfoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */; };
 		DB14E7FF1CD784BD008D79ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */; };
 		DB14E8031CD8A374008D79ED /* BlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E8021CD8A374008D79ED /* BlackBox.swift */; };
-		DB14E8051CD8ACEC008D79ED /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E8041CD8ACEC008D79ED /* tableViewController.swift */; };
+		DB14E8051CD8ACEC008D79ED /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14E8041CD8ACEC008D79ED /* TableViewController.swift */; };
+		DB9AB99A1CDBBF8400814C46 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9AB9991CDBBF8400814C46 /* FBSDKCoreKit.framework */; };
+		DB9AB99C1CDBBF9B00814C46 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9AB99B1CDBBF9B00814C46 /* FBSDKLoginKit.framework */; };
+		DB9AB99E1CDBBFA500814C46 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9AB99D1CDBBFA500814C46 /* FBSDKShareKit.framework */; };
 		DBA10F771CD296AB00DF5A88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */; };
 		DBA10F791CD296AB00DF5A88 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA10F781CD296AB00DF5A88 /* MapViewController.swift */; };
 		DBA10F7C1CD296AB00DF5A88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA10F7A1CD296AB00DF5A88 /* Main.storyboard */; };
 		DBA10F7E1CD296AB00DF5A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBA10F7D1CD296AB00DF5A88 /* Assets.xcassets */; };
 		DBA10F811CD296AB00DF5A88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA10F7F1CD296AB00DF5A88 /* LaunchScreen.storyboard */; };
-		DBFADB391CD95F3C000E5C97 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFADB381CD95F3C000E5C97 /* Client.swift */; };
+		DBBBF6371CDB65E800454025 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBF6361CDB65E800454025 /* Connection.swift */; };
+		DBFADB391CD95F3C000E5C97 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFADB381CD95F3C000E5C97 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPostViewController.swift; sourceTree = "<group>"; };
 		DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB14E8021CD8A374008D79ED /* BlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBox.swift; sourceTree = "<group>"; };
-		DB14E8041CD8ACEC008D79ED /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
+		DB14E8041CD8ACEC008D79ED /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		DB9AB9991CDBBF8400814C46 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "On the Map/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		DB9AB99B1CDBBF9B00814C46 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "On the Map/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		DB9AB99D1CDBBFA500814C46 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "On the Map/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		DBA10F731CD296AA00DF5A88 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBA10F781CD296AB00DF5A88 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -31,7 +38,9 @@
 		DBA10F7D1CD296AB00DF5A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBA10F801CD296AB00DF5A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBA10F821CD296AB00DF5A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBFADB381CD95F3C000E5C97 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		DBBBF6361CDB65E800454025 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		DBBBF63F1CDB7D9900454025 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		DBFADB381CD95F3C000E5C97 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9AB99E1CDBBFA500814C46 /* FBSDKShareKit.framework in Frameworks */,
+				DB9AB99C1CDBBF9B00814C46 /* FBSDKLoginKit.framework in Frameworks */,
+				DB9AB99A1CDBBF8400814C46 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +60,9 @@
 		DBA10F6A1CD296A900DF5A88 = {
 			isa = PBXGroup;
 			children = (
+				DB9AB99D1CDBBFA500814C46 /* FBSDKShareKit.framework */,
+				DB9AB99B1CDBBF9B00814C46 /* FBSDKLoginKit.framework */,
+				DB9AB9991CDBBF8400814C46 /* FBSDKCoreKit.framework */,
 				DBA10F751CD296AA00DF5A88 /* On the Map */,
 				DBA10F741CD296AA00DF5A88 /* Products */,
 			);
@@ -77,7 +92,8 @@
 		DBFADB331CD95DF5000E5C97 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DBFADB381CD95F3C000E5C97 /* Client.swift */,
+				DBFADB381CD95F3C000E5C97 /* Data.swift */,
+				DBBBF6361CDB65E800454025 /* Connection.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -88,7 +104,7 @@
 				DB14E8021CD8A374008D79ED /* BlackBox.swift */,
 				DB14E7FC1CD77FDB008D79ED /* InfoPostViewController.swift */,
 				DB14E7FE1CD784BD008D79ED /* LoginViewController.swift */,
-				DB14E8041CD8ACEC008D79ED /* tableViewController.swift */,
+				DB14E8041CD8ACEC008D79ED /* TableViewController.swift */,
 				DBA10F781CD296AB00DF5A88 /* MapViewController.swift */,
 			);
 			name = Controller;
@@ -107,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DBA10F761CD296AB00DF5A88 /* AppDelegate.swift */,
+				DBBBF63F1CDB7D9900454025 /* Bridging-Header.h */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -183,11 +200,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB14E7FF1CD784BD008D79ED /* LoginViewController.swift in Sources */,
-				DB14E8051CD8ACEC008D79ED /* tableViewController.swift in Sources */,
+				DB14E8051CD8ACEC008D79ED /* TableViewController.swift in Sources */,
 				DBA10F791CD296AB00DF5A88 /* MapViewController.swift in Sources */,
+				DBBBF6371CDB65E800454025 /* Connection.swift in Sources */,
 				DB14E7FD1CD77FDB008D79ED /* InfoPostViewController.swift in Sources */,
 				DB14E8031CD8A374008D79ED /* BlackBox.swift in Sources */,
-				DBFADB391CD95F3C000E5C97 /* Client.swift in Sources */,
+				DBFADB391CD95F3C000E5C97 /* Data.swift in Sources */,
 				DBA10F771CD296AB00DF5A88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,10 +319,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/On",
+					the,
+					Map,
+					"$(PROJECT_DIR)/On",
+					the,
+					Map,
+				);
 				INFOPLIST_FILE = "On the Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prv.On-the-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "On the Map/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -312,10 +340,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/On",
+					the,
+					Map,
+					"$(PROJECT_DIR)/On",
+					the,
+					Map,
+				);
 				INFOPLIST_FILE = "On the Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prv.On-the-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "On the Map/Bridging-Header.h";
 			};
 			name = Release;
 		};

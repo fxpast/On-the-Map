@@ -6,22 +6,18 @@
 //  Copyright © 2016 Pastouret Roger. All rights reserved.
 //
 
-
 import Foundation
 import MapKit
 import UIKit
-
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var IBMap: MKMapView!
     
-    
     var accountKey:String!
     var sessionId:String!
     var config:Config!
     var students:Students!
-    
     
     //MARK: View Controller Delegate
     
@@ -37,7 +33,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         sessionId = config.sessionId
         RefreshData()
         
-        
     }
     
     //MARK: Data Networking
@@ -45,7 +40,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         RefreshData()
     }
-    
     
     private func RefreshData()  {
         
@@ -83,7 +77,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     annotations.append(annotation)
                 }
                 
-                
                 performUIUpdatesOnMain {
                     self.IBMap.addAnnotations(annotations)
                 }
@@ -102,7 +95,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func ActionLogout(sender: AnyObject) {
         
-        
         DeleteSession({(success, errorString) in
             
             if success {
@@ -118,9 +110,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }
             }
             
-            
         })
-        
         
     }
     
@@ -159,7 +149,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
     
     
 }

@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import UIKit
 
-class InfoPostViewController : UIViewController , MKMapViewDelegate {
+class InfoPostViewController : UIViewController , MKMapViewDelegate, UITextFieldDelegate {
     
     
     
@@ -31,9 +31,12 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
         super.viewDidLoad()
         
         config = Config.sharedInstance
-        IBActivity.hidden = true
         student = Student(dico:[String:AnyObject]())
         IBMap.delegate = self
+        IBInfoLocation.delegate = self
+        IBUrl.delegate = self
+        
+        self.IBActivity.stopAnimating()
         
         setUIHidden(true)
         
@@ -61,20 +64,60 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+        
+    }
     
     
     //MARK: Data Networking
     
+    @IBAction func ActionFindMap(sender: AnyObject) {
+        
+        setUIHidden(false)
+        
+        IBActivity.startAnimating()
+        config.mapString = IBInfoLocation.text
+        
+        let geoCode  = CLGeocoder()
+        
+        
+        geoCode.geocodeAddressString(IBInfoLocation.text!, completionHandler: {(marks,error) in
+            
+            guard error == nil else {
+                performUIUpdatesOnMain {
+                    
+                    self.setUIHidden(true)
+                    self.IBActivity.stopAnimating()
+                    self.displayAlert("error geocodeadresse : \(error.debugDescription)")
+                }
+                return
+            }
+            
+            let placemark = marks![0] as CLPlacemark
+            self.config.latitude = Float((placemark.location?.coordinate.latitude)!)
+            self.config.longitude = Float((placemark.location?.coordinate.longitude)!)
+            
+            performUIUpdatesOnMain {
+                self.loadData()
+                
+            }
+            
+        })
+        
+        
+    }
+    
     
     @IBAction func ActionSubmit(sender: AnyObject) {
         
-        IBActivity.hidden = false
+        
         IBActivity.startAnimating()
         
         guard IBUrl.text != "" else {
             
             self.IBActivity.stopAnimating()
-            self.IBActivity.hidden = true
             displayAlert("Error, You have to paste or Tape in the link")
             return
         }
@@ -84,7 +127,6 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
         PostLocation(student, completionHandlerPostLocation: {(success, errorString) in
             
             self.IBActivity.stopAnimating()
-            self.IBActivity.hidden = true
             
             if success {
                 performUIUpdatesOnMain {
@@ -103,7 +145,6 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
     }
     
     
-    
     private func loadData()  {
         
         
@@ -111,8 +152,6 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
             
             
             self.IBActivity.stopAnimating()
-            self.IBActivity.hidden = true
-            
             
             if success {
                 
@@ -145,6 +184,13 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
                     
                     self.IBMap.addAnnotation(annotation)
                     
+                    //Setting Visible Area
+                    let regionRadius: CLLocationDistance = 1000
+                    let coordinateRegion = MKCoordinateRegionMakeWithDistance(annotation.coordinate,
+                        regionRadius * 2.0, regionRadius * 2.0)
+                    self.IBMap.setRegion(coordinateRegion, animated: true)
+                    
+                    
                 }
                 
             }
@@ -161,44 +207,6 @@ class InfoPostViewController : UIViewController , MKMapViewDelegate {
     }
     
     
-    
-    @IBAction func ActionFindMap(sender: AnyObject) {
-        
-        setUIHidden(false)
-        
-        IBActivity.hidden = false
-        IBActivity.startAnimating()
-        config.mapString = IBInfoLocation.text
-        
-        let geoCode  = CLGeocoder()
-        
-        
-        geoCode.geocodeAddressString(IBInfoLocation.text!, completionHandler: {(marks,error) in
-            
-            guard error == nil else {
-                performUIUpdatesOnMain {
-                    
-                    self.setUIHidden(true)
-                    self.IBActivity.stopAnimating()
-                    self.IBActivity.hidden = true
-                    self.displayAlert("error geocodeadresse : \(error.debugDescription)")
-                }
-                return
-            }
-            
-            let placemark = marks![0] as CLPlacemark
-            self.config.latitude = Float((placemark.location?.coordinate.latitude)!)
-            self.config.longitude = Float((placemark.location?.coordinate.longitude)!)
-            
-            performUIUpdatesOnMain {
-                self.loadData()
-                
-            }
-            
-        })
-        
-        
-    }
     
     
     
