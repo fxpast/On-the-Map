@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import UIKit
 
 class LoginViewController : UIViewController {
@@ -16,25 +15,43 @@ class LoginViewController : UIViewController {
     @IBOutlet weak var IBPassword: UITextField!
     @IBOutlet weak var IBLogin: UIButton!
     
+    
+    
+    private func setUIEnabled(enabled: Bool) {
+        IBEmail.enabled = enabled
+        IBPassword.enabled = enabled
+        IBLogin.enabled = enabled
+        // adjust login button alpha
+        if enabled {
+            IBLogin.alpha = 1.0
+        } else {
+            IBLogin.alpha = 0.5
+        }
+        
+        
+    }
+    
+    
+    //MARK: Sign in
     @IBAction func ActionLogin(sender: AnyObject) {
         
         
-        guard self.IBEmail.text != "" else {
+        guard IBEmail.text != "" else {
             
             displayAlert("Error, Email is empty")
             return
         }
         
         
-        guard self.IBPassword.text != "" else {
+        guard IBPassword.text != "" else {
             
             displayAlert( "Error, password is empty")
             return
         }
         
-        self.setUIEnabled(false)
+        setUIEnabled(false)
         
-        getSessionID(self.IBEmail.text, password: self.IBPassword.text, completionHandlerForSession: {(success, accountKey, sessionId, errorString) in
+        getSessionID(IBEmail.text, password: IBPassword.text, completionHandlerForSession: {(success, accountKey, sessionId, errorString) in
         
             
             
@@ -47,7 +64,7 @@ class LoginViewController : UIViewController {
                 
                 performUIUpdatesOnMain {
                     
-                    var config = Config.sharedInstance
+                    let config = Config.sharedInstance
                     config.accountKey = accountKey
                     config.sessionId = sessionId
                     self.IBPassword.text = ""
@@ -70,44 +87,6 @@ class LoginViewController : UIViewController {
     }
     
     
-  private func displayAlert(mess : String) {
-        
-        
-        let alertController = UIAlertController(title: "Error", message: mess, preferredStyle: .Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-        
-    }
-
-    
-    
-    
-    private func setUIEnabled(enabled: Bool) {
-        self.IBEmail.enabled = enabled
-        self.IBPassword.enabled = enabled
-        self.IBLogin.enabled = enabled
-        // adjust login button alpha
-        if enabled {
-            self.IBLogin.alpha = 1.0
-        } else {
-            self.IBLogin.alpha = 0.5
-        }
-        
-        
-    }
-    
-    
-    @IBAction func ActionSingUp(sender: AnyObject) {
-        
-        let app = UIApplication.sharedApplication()
-        app.openURL(NSURL(string: "https://www.udacity.com/account/auth#!/signup")!)
-        
-    }
-    
     
     
     @IBAction func ActionFaceBook(sender: AnyObject) {
@@ -115,6 +94,16 @@ class LoginViewController : UIViewController {
         
         
     }
+    
+    
+    //MARK: Sign up
+    @IBAction func ActionSingUp(sender: AnyObject) {
+        
+        let app = UIApplication.sharedApplication()
+        app.openURL(NSURL(string: "https://www.udacity.com/account/auth#!/signup")!)
+        
+    }
+    
     
     
     

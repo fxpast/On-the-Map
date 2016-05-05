@@ -8,9 +8,7 @@
 
 
 import Foundation
-
 import MapKit
-
 import UIKit
 
 
@@ -22,49 +20,49 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var accountKey:String!
     var sessionId:String!
     var config:Config!
+    var students:Students!
+    
+    
+    //MARK: View Controller Delegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         config = Config.sharedInstance
-        self.IBMap.delegate = self
+        students = Students.sharedInstance
+        IBMap.delegate = self
         
-        self.accountKey  = config.accountKey
-        self.sessionId = config.sessionId
-        self.RefreshData()
+        accountKey  = config.accountKey
+        sessionId = config.sessionId
+        RefreshData()
         
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
+    //MARK: Data Networking
     @IBAction func ActionRefresh(sender: AnyObject) {
         
-        self.RefreshData()
+        RefreshData()
     }
     
     
     private func RefreshData()  {
         
-        let annoArray = self.IBMap.annotations as [AnyObject]
+        let annoArray = IBMap.annotations as [AnyObject]
         for item in annoArray {
-            self.IBMap.removeAnnotation(item as! MKAnnotation)
+            IBMap.removeAnnotation(item as! MKAnnotation)
         }
         
         getLocations({(success, locations, errorString) in
             
             if success {
                 
-                self.config.locations = locations
+                self.students.studentsArray = locations
                 
                 var annotations = [MKPointAnnotation]()
                 
-                for dictionary in self.config.locations! {
+                for dictionary in self.students.studentsArray! {
                     
                     let student = Student(dico: dictionary)
                     // Notice that the float values are being used to create CLLocationDegree values.
@@ -96,29 +94,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     self.displayAlert(errorString!)
                 }
             }
-
-            
             
         })
         
-        
     }
-    
-    
-    
-    func displayAlert(mess : String) {
-        
-        
-        let alertController = UIAlertController(title: "Error", message: mess, preferredStyle: .Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-
-        self.presentViewController(alertController, animated: true, completion: nil)
-        
-    }
-
     
     
     @IBAction func ActionLogout(sender: AnyObject) {
@@ -126,9 +105,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         DeleteSession({(success, errorString) in
             
-            
             if success {
-                
                 
                 performUIUpdatesOnMain {
                     self.dismissViewControllerAnimated(true, completion: nil)
@@ -148,7 +125,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-        
+    //MARK: Map View Delegate
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -173,7 +150,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.sharedApplication()
             if let toOpen = view.annotation?.subtitle! {
-                app.openURL(NSURL(string: toOpen)!)
+                guard let url = NSURL(string: toOpen) else {
+                    displayAlert("invalid link")
+                    return
+                }
+                app.openURL(url)
+                
             }
         }
     }

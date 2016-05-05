@@ -7,47 +7,34 @@
 //
 
 import Foundation
-
 import UIKit
 
 
 class tableViewController: UITableViewController {
-
-
-    var config:Config!
     
+    
+    var students:Students!
+    
+    
+    
+    //MARK: View Controller Delegate
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
-        config = Config.sharedInstance
-        //self.RefreshData()
+        students = Students.sharedInstance
         
-        
-
-    }
-
-    
-    func displayAlert(mess : String) {
-        
-        
-        let alertController = UIAlertController(title: "Error", message: mess, preferredStyle: .Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-
     
-  private  func RefreshData()  {
+    
+    //MARK: Data Networking
+    private  func RefreshData()  {
         
         
         getLocations({(success, locations, errorString) in
             
             if success {
-                self.config.locations = locations
+                self.students.studentsArray = locations
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                 }
@@ -64,53 +51,12 @@ class tableViewController: UITableViewController {
     }
     
     
-
+    
     
     @IBAction func ActionRefresh(sender: AnyObject) {
         
-        self.RefreshData()
+        RefreshData()
     }
-    
-    
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let CellReuseId = "Cell"
-        let location =  config.locations[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseId) as UITableViewCell!
-        let student = Student(dico: location)
-      
-        for view in cell.contentView.subviews {
-            
-            if view.tag == 99 {
-                let firstlastname = view as! UILabel
-                firstlastname.text =  "\(student.firstName)  \(student.lastName)"
-            }
-            
-        }
-        
-        
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.config.locations.count
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let location = config.locations[indexPath.row]
-        let student = Student(dico: location)
-        let app = UIApplication.sharedApplication()
-        
-        guard student.mediaURL != "" else {
-            displayAlert("The student's link does not exist")
-            return
-        }
-        
-        app.openURL(NSURL(string: student.mediaURL)!)
-       
-    }
- 
     
     
     
@@ -141,5 +87,53 @@ class tableViewController: UITableViewController {
         
     }
     
+    
+    //MARK: Table View Controller Delegate
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let CellReuseId = "Cell"
+        let location =  students.studentsArray[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseId) as UITableViewCell!
+        let student = Student(dico: location)
+        
+        for view in cell.contentView.subviews {
+            
+            if view.tag == 99 {
+                let firstlastname = view as! UILabel
+                firstlastname.text =  "\(student.firstName)  \(student.lastName)"
+            }
+            
+        }
+        
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return students.studentsArray.count
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let location = students.studentsArray[indexPath.row]
+        let student = Student(dico: location)
+        let app = UIApplication.sharedApplication()
+        
+        guard student.mediaURL != "" else {
+            displayAlert("The student's link does not exist")
+            return
+        }
+        
+        guard let url = NSURL(string: student.mediaURL) else {
+            displayAlert("invalid link")
+            return
+        }
+        app.openURL(url)
+        
+        
+        
+    }
+    
+    
+  
     
 }
