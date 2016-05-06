@@ -57,13 +57,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB04E93F1CDC2D62007F313E /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				DB9AB9991CDBBF8400814C46 /* FBSDKCoreKit.framework */,
+				DB9AB99B1CDBBF9B00814C46 /* FBSDKLoginKit.framework */,
+				DB9AB99D1CDBBFA500814C46 /* FBSDKShareKit.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		DBA10F6A1CD296A900DF5A88 = {
 			isa = PBXGroup;
 			children = (
-				DB9AB99D1CDBBFA500814C46 /* FBSDKShareKit.framework */,
-				DB9AB99B1CDBBF9B00814C46 /* FBSDKLoginKit.framework */,
-				DB9AB9991CDBBF8400814C46 /* FBSDKCoreKit.framework */,
 				DBA10F751CD296AA00DF5A88 /* On the Map */,
+				DB04E93F1CDC2D62007F313E /* Framework */,
 				DBA10F741CD296AA00DF5A88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -321,12 +329,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/On",
-					the,
-					Map,
-					"$(PROJECT_DIR)/On",
-					the,
-					Map,
+					"$(PROJECT_DIR)/On\\ the\\ Map",
+					"$(PROJECT_DIR)/On\\ the\\ Map",
+					"$(PROJECT_DIR)/On\\ the\\ Map",
 				);
 				INFOPLIST_FILE = "On the Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -342,12 +347,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/On",
-					the,
-					Map,
-					"$(PROJECT_DIR)/On",
-					the,
-					Map,
+					"$(PROJECT_DIR)/On\\ the\\ Map",
+					"$(PROJECT_DIR)/On\\ the\\ Map",
+					"$(PROJECT_DIR)/On\\ the\\ Map",
 				);
 				INFOPLIST_FILE = "On the Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
